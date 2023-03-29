@@ -5,6 +5,8 @@
   {
     public static int p1Score;
     public static int p2Score;
+    public static string p1;
+    public static string p2;
   }
 
   class Program
@@ -18,9 +20,11 @@
         var gameName = Console.ReadLine();
         Console.WriteLine($"Nice name choice! Now what is player one's name?");
         var p1Name = Console.ReadLine();
+        Globals.p1 = p1Name;
         Console.WriteLine($"Okay {p1Name}, who is your opponent today?");
         var p2Name = Console.ReadLine();
-        Console.WriteLine($"Okay {p1Name} and {p2Name}, are you ready to play a game of {gameName}? Y/N");
+        Globals.p2 = p2Name;
+        Console.WriteLine($"Okay {Globals.p1}(1) and {Globals.p2}(2), are you ready to play a game of {gameName}? Y/N");
         var startGame = Console.ReadLine().ToUpper();
         if (startGame == "Y")
         {
@@ -46,7 +50,7 @@
         {
           Console.Write(i + " ");
         }
-        Console.WriteLine($"Who just rolled that? Player 1 or 2?");
+        Console.WriteLine($"Who just rolled that? {Globals.p1}(1) or {Globals.p2}(2)?");
         var player = Convert.ToInt32(Console.ReadLine());
 
         if (player == 1)
@@ -55,7 +59,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p1Score = Globals.p1Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p1Score}");
+          Console.WriteLine($"Nice Roll {Globals.p1}, your score is now {Globals.p1Score}");
         }
         else if (player == 2)
         {
@@ -63,7 +67,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p2Score = Globals.p2Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p2Score}");
+          Console.WriteLine($"Nice Roll {Globals.p2}, your score is now {Globals.p2Score}");
         }
 
         Console.WriteLine($"\r\nHow many dice are left?");
@@ -73,6 +77,10 @@
         if (afterSix == 5)
         {
           RollFiveDice();
+        }
+        else if (afterSix == 6)
+        {
+          RollSixDice();
         }
         else if (afterSix == 4)
         {
@@ -129,7 +137,7 @@
           Console.Write(i + " ");
         }
 
-        Console.WriteLine($"Who just rolled that? Player 1 or 2?");
+        Console.WriteLine($"Who just rolled that? {Globals.p1}(1) or {Globals.p2}(2)?");
         var player = Convert.ToInt32(Console.ReadLine());
 
         if (player == 1)
@@ -138,7 +146,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p1Score = Globals.p1Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p1Score}");
+          Console.WriteLine($"Nice Roll {Globals.p1}, your score is now {Globals.p1Score}");
         }
         else if (player == 2)
         {
@@ -146,7 +154,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p2Score = Globals.p2Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p2Score}");
+          Console.WriteLine($"Nice Roll {Globals.p2}, your score is now {Globals.p2Score}");
         }
         Console.WriteLine($"How many dice are left?");
 
@@ -155,6 +163,10 @@
         if (afterFive == 4)
         {
           RollFourDice();
+        }
+        else if (afterFive == 6)
+        {
+          RollSixDice();
         }
         else if (afterFive == 3)
         {
@@ -206,7 +218,7 @@
           Console.Write(i + " ");
         }
 
-        Console.WriteLine($"Who just rolled that? Player 1 or 2?");
+        Console.WriteLine($"Who just rolled that? {Globals.p1}(1) or {Globals.p2}(2)?");
         var player = Convert.ToInt32(Console.ReadLine());
 
         if (player == 1)
@@ -215,7 +227,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p1Score = Globals.p1Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p1Score}");
+          Console.WriteLine($"Nice Roll {Globals.p1}, your score is now {Globals.p1Score}");
         }
         else if (player == 2)
         {
@@ -223,7 +235,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p2Score = Globals.p2Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p2Score}");
+          Console.WriteLine($"Nice Roll {Globals.p2}, your score is now {Globals.p2Score}");
         }
         Console.WriteLine($"How many dice are left?");
 
@@ -232,6 +244,10 @@
         if (afterFour == 3)
         {
           RollThreeDice();
+        }
+        else if (afterFour == 6)
+        {
+          RollSixDice();
         }
         else if (afterFour == 2)
         {
@@ -278,7 +294,7 @@
           Console.Write(i + " ");
         }
 
-        Console.WriteLine($"Who just rolled that? Player 1 or 2?");
+        Console.WriteLine($"Who just rolled that? {Globals.p1}(1) or {Globals.p2}(2)?");
         var player = Convert.ToInt32(Console.ReadLine());
 
         if (player == 1)
@@ -287,7 +303,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p1Score = Globals.p1Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p1Score}");
+          Console.WriteLine($"Nice Roll {Globals.p1}, your score is now {Globals.p1Score}");
         }
         else if (player == 2)
         {
@@ -295,7 +311,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p2Score = Globals.p2Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p2Score}");
+          Console.WriteLine($"Nice Roll {Globals.p2}, your score is now {Globals.p2Score}");
         }
         Console.WriteLine($"How many dice are left?");
 
@@ -304,6 +320,10 @@
         if (afterThree == 2)
         {
           RollTwoDice();
+        }
+        else if (afterThree == 6)
+        {
+          RollSixDice();
         }
         else if (afterThree == 0)
         {
@@ -344,7 +364,7 @@
         {
           Console.Write(i + " ");
         }
-        Console.WriteLine($"Who just rolled that? Player 1 or 2?");
+        Console.WriteLine($"Who just rolled that? {Globals.p1}(1) or {Globals.p2}(2)?");
         var player = Convert.ToInt32(Console.ReadLine());
 
         if (player == 1)
@@ -353,7 +373,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p1Score = Globals.p1Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p1Score}");
+          Console.WriteLine($"Nice Roll {Globals.p1}, your score is now {Globals.p1Score}");
         }
         else if (player == 2)
         {
@@ -361,7 +381,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p2Score = Globals.p2Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p2Score}");
+          Console.WriteLine($"Nice Roll {Globals.p2}, your score is now {Globals.p2Score}");
         }
 
         Console.WriteLine($"How many dice are left?");
@@ -371,6 +391,10 @@
         if (afterTwo == 1)
         {
           RollOneDie();
+        }
+        else if (afterTwo == 6)
+        {
+          RollSixDice();
         }
         else if (afterTwo == 0)
         {
@@ -407,7 +431,7 @@
           Console.WriteLine(i + " ");
         }
 
-        Console.WriteLine($"Who just rolled that? Player 1 or 2?");
+        Console.WriteLine($"Who just rolled that? {Globals.p1}(1) or {Globals.p2}(2)?");
         var player = Convert.ToInt32(Console.ReadLine());
 
         if (player == 1)
@@ -416,7 +440,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p1Score = Globals.p1Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p1Score}");
+          Console.WriteLine($"Nice Roll {Globals.p1}, your score is now {Globals.p1Score}");
         }
         else if (player == 2)
         {
@@ -424,7 +448,7 @@
           var rollScore = Convert.ToInt32(Console.ReadLine());
 
           Globals.p2Score = Globals.p2Score + rollScore;
-          Console.WriteLine($"Nice Roll, your score is now {Globals.p2Score}");
+          Console.WriteLine($"Nice Roll {Globals.p2}, your score is now {Globals.p2Score}");
         }
 
         Console.WriteLine($"Can you roll all 6 again? Y/N");
